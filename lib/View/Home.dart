@@ -13,9 +13,9 @@ class Home extends StatefulWidget {
 class HomeState extends State<Home> {
   var _listName = 'Doctors';
   final doctor_list = [
-    ['islam kamal', 'Cardologist Doctor', 'img/doctor1.png'],
-    ['omar gaber abdo', 'Eye Care Doctor', 'img/doctor2.png'],
-    ['hossam saleh', 'Heart Dental', 'img/doctor3.png'],
+    ['islam kamal', 'Cardologist Doctor','34st mansour,cairo', 'img/doctor1.png'],
+    ['omar gaber abdo', 'Eye Care Doctor','11st shadpuna,gizq', 'img/doctor2.png'],
+    ['hossam saleh', 'Heart Dental','5st salmen,sohag','img/doctor3.png'],
 
   ];
   @override
@@ -287,6 +287,18 @@ class HomeState extends State<Home> {
                                   EdgeInsets.only(left: 15, right: 5, top: 5),
                               child: Text(
                                 doctor_list[index][1],
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18.0,
+                                  //  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                              EdgeInsets.only(left: 15, right: 5, top: 5),
+                              child: Text(
+                                doctor_list[index][2],
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 18.0,
