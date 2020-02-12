@@ -26,20 +26,20 @@ class SmoothStarRating extends StatelessWidget {
       icon = new Icon(
         Icons.star_border,
         color: borderColor ?? Theme.of(context).primaryColor,
-        size: size ?? 25.0,
+        size: size ?? 10.0,
       );
     } else if (index > rating - (allowHalfRating ? 0.5 : 1.0) &&
         index < rating) {
       icon = new Icon(
         Icons.star_half,
         color: color ?? Theme.of(context).primaryColor,
-        size: size ?? 25.0,
+        size: size ?? 10.0,
       );
     } else {
       icon = new Icon(
         Icons.star,
         color: color ?? Theme.of(context).primaryColor,
-        size: size ?? 25.0,
+        size: size ?? 10.0,
       );
     }
     return new GestureDetector(

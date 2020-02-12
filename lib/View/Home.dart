@@ -265,13 +265,12 @@ class HomeState extends State<Home> {
                                     color: Colors.blueAccent,
                                     borderColor: Colors.black,
                                     allowHalfRating: true,
-                                    rating:
-                                        2, // detect rate for each doctor and take its value from rating which user do
-                                    size: 15,
+                                    rating: 2, // detect rate for each doctor and take its value from rating which user do
+                                    size: 12,
                                     spacing: 2,
                                   ),
                                   SizedBox(
-                                    width: 20,
+                                    width:10,
                                   ),
                                   Text(
                                     "15 Reviews", // number of reviews take its value from counter every review user make to doctor
