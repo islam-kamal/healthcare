@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:healthcare/Model/CommonComponents.dart';
 import 'package:healthcare/Model/SmoothStarRating.dart';
 
 class Home extends StatefulWidget {
@@ -13,169 +14,174 @@ class Home extends StatefulWidget {
 class HomeState extends State<Home> {
   var _listName = 'Doctors';
   final doctor_list = [
-    ['islam kamal', 'Cardologist Doctor','34st mansour,cairo', 'img/doctor1.png'],
-    ['omar gaber abdo', 'Eye Care Doctor','11st shadpuna,gizq', 'img/doctor2.png'],
-    ['hossam saleh', 'Heart Dental','5st salmen,sohag','img/doctor3.png'],
+    ['islam kamal', 'Cardologist Doctor', 'img/doctor1.png'],
+    ['omar gaber abdo', 'Eye Care Doctor', 'img/doctor2.png'],
+    ['hossam saleh', 'Heart Dental', 'img/doctor3.png'],
 
   ];
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return  new Scaffold(
       appBar: new AppBar(
-        title: new Text('Home'),
+        title: CommonComponents.HeaderTitle('Home'),
         actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.search),
-              disabledColor: Colors.white,
-              padding: EdgeInsets.only(right: 10),
-              onPressed: null)
+          CommonComponents.SearchIcon(context),
         ],
       ),
-      body:  SafeArea(
+      body: WillPopScope(
+    onWillPop:()async =>false,
+    child: SafeArea(
         child: SingleChildScrollView(
           child: new Container(
-        alignment: Alignment.center,
-        // contain all widgets in home page
-        child: new Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: new Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    new Expanded(
-                      child: InkWell(
-                        child: new Column(
-                          children: <Widget>[
-                            CircleAvatar(
-                              radius: MediaQuery.of(context).size.width / 10,
-                              backgroundImage:
+            alignment: Alignment.center,
+            // contain all widgets in home page
+            child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: new Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new Expanded(
+                          child: InkWell(
+                            child: new Column(
+                              children: <Widget>[
+                                CircleAvatar(
+                                  radius: MediaQuery
+                                      .of(context)
+                                      .size
+                                      .width / 10,
+                                  backgroundImage:
                                   AssetImage('img/home_doctor.png'),
+                                ),
+                                new Text(
+                                  "Doctors",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
                             ),
-                            new Text(
-                              "Doctors",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                            onTap: () {
+                              setState(() {
+                                _listName = 'Doctors';
+                              });
+                            },
+                          ),
                         ),
-                        onTap: () {
-                          setState(() {
-                            _listName = 'Doctors';
-                          });
-                        },
-                      ),
-                    ),
-                    new Expanded(
-                      child: InkWell(
-                        child: new Column(
-                          children: <Widget>[
-                            CircleAvatar(
-                              radius: MediaQuery.of(context).size.width / 10,
-                              backgroundImage:
+                        new Expanded(
+                          child: InkWell(
+                            child: new Column(
+                              children: <Widget>[
+                                CircleAvatar(
+                                  radius: MediaQuery
+                                      .of(context)
+                                      .size
+                                      .width / 10,
+                                  backgroundImage:
                                   AssetImage('img/home_pharmacy.png'),
+                                ),
+                                new Text(
+                                  "Pharmacies",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
                             ),
-                            new Text(
-                              "Pharmacies",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            ),
-                          ],
+                            onTap: () {
+                              setState(() {
+                                _listName = 'Pharmacies';
+                              });
+                            },
+                          ),
                         ),
-                        onTap: () {
-                          setState(() {
-                            _listName = 'Pharmacies';
-                          });
-                        },
-                      ),
-                    ),
-                    new Expanded(
-                      child: InkWell(
-                        child: new Column(
-                          children: <Widget>[
-                            CircleAvatar(
-                              radius: MediaQuery.of(context).size.width / 10,
-                              backgroundImage:
+                        new Expanded(
+                          child: InkWell(
+                            child: new Column(
+                              children: <Widget>[
+                                CircleAvatar(
+                                  radius: MediaQuery
+                                      .of(context)
+                                      .size
+                                      .width / 10,
+                                  backgroundImage:
                                   AssetImage('img/home_hospital.png'),
+                                ),
+                                new Text(
+                                  "Hospitals",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
                             ),
-                            new Text(
-                              "Hospitals",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
+                            onTap: () {
+                              setState(() {
+                                _listName = 'Hospitals';
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: new Row(
+                      children: <Widget>[
+                        new Text(
+                          '$_listName List',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.0,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                        //to make space bettween two widget
+                        Spacer(),
+                        new InkWell(
+                          child: Text(
+                            'View All',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0,
+                              fontStyle: FontStyle.italic,
                             ),
-                          ],
+                          ),
                         ),
-                        onTap: () {
-                          setState(() {
-                            _listName = 'Hospitals';
-                          });
-                        },
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: new Container(
+                      child: ListView.builder(
+                        controller: null,
+                        itemCount: doctor_list.length,
+                        itemBuilder: _DoctorDtails,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+
                       ),
                     ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: new Row(
-                  children: <Widget>[
-                    new Text(
-                      '$_listName List',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                    //to make space bettween two widget
-                    Spacer(),
-                    new InkWell(
-                      child: Text(
-                        'View All',
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0,
-                          fontStyle: FontStyle.italic,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-                Padding(
-                      padding: EdgeInsets.all(5.0),
-                      child: new Container(
-                        child: ListView.builder(
-                          controller: null,
-                          itemCount: doctor_list.length,
-                          itemBuilder: _DoctorDtails,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-
-                        ),
-                      ),
-                    ),
-
-
-
-              // usen to display data which get from firebase
-              /*
+                  ),
+                  // usen to display data which get from firebase
+                  /*
               new Container(
                 child: FutureBuilder(
                   //  future: doctor_list,
@@ -193,17 +199,20 @@ class HomeState extends State<Home> {
               )
 
                */
-
-            ]),
-      ),
+                ]),
+          ),
         ),
+    ),
       ),
+
 
       drawer: new Drawer(
-        child: DrawerView(context),
+        child: CommonComponents.DrawerMenu(context),
       ),
 
     );
+
+
   }
 
   Widget _DoctorDtails(BuildContext context, int index) {
@@ -220,7 +229,10 @@ class HomeState extends State<Home> {
           child: new Container(
             alignment: Alignment.topCenter,
             padding: EdgeInsets.only(left: 5, right: 5, top: 5),
-            height: MediaQuery.of(context).size.width / 2.2,
+            height: MediaQuery
+                .of(context)
+                .size
+                .width / 2.2,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.0),
               border: Border.all(
@@ -238,7 +250,10 @@ class HomeState extends State<Home> {
                   children: <Widget>[
                     Container(
                       //  padding: EdgeInsets.only(left: 13, right: 5, top:5),
-                      width: MediaQuery.of(context).size.width / 1.5,
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width / 1.5,
                       child: Padding(
                         padding: EdgeInsets.only(left: 5, right: 5, top: 5),
                         child: new Column(
@@ -265,15 +280,18 @@ class HomeState extends State<Home> {
                                     color: Colors.blueAccent,
                                     borderColor: Colors.black,
                                     allowHalfRating: true,
-                                    rating: 2, // detect rate for each doctor and take its value from rating which user do
-                                    size: 12,
+                                    rating:
+                                    2,
+                                    // detect rate for each doctor and take its value from rating which user do
+                                    size: 15,
                                     spacing: 2,
                                   ),
                                   SizedBox(
-                                    width:10,
+                                    width: 20,
                                   ),
                                   Text(
-                                    "15 Reviews", // number of reviews take its value from counter every review user make to doctor
+                                    "15 Reviews",
+                                    // number of reviews take its value from counter every review user make to doctor
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.grey,
@@ -284,7 +302,7 @@ class HomeState extends State<Home> {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsets.only(left: 15, right: 5, top: 5),
+                              EdgeInsets.only(left: 15, right: 5, top: 5),
                               child: Text(
                                 doctor_list[index][1],
                                 style: TextStyle(
@@ -294,20 +312,11 @@ class HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding:
-                              EdgeInsets.only(left: 15, right: 5, top: 5),
-                              child: Text(
-                                doctor_list[index][2],
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18.0,
-                                  //  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
                             new Container(
-                              width: MediaQuery.of(context).size.width / 2,
+                              width: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .width / 2,
                               padding: EdgeInsets.only(top: 5),
                               child: new RaisedButton(
                                 onPressed: () {
@@ -320,7 +329,7 @@ class HomeState extends State<Home> {
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(12.0),
                                   side:
-                                      BorderSide(color: Colors.cyan, width: 2),
+                                  BorderSide(color: Colors.cyan, width: 2),
                                 ),
                                 color: Colors.white60,
                               ),
@@ -333,7 +342,10 @@ class HomeState extends State<Home> {
                       // will use images  stored in doctor list
                       backgroundImage: AssetImage('img/doctor2.png'),
 
-                      radius: MediaQuery.of(context).size.width / 9,
+                      radius: MediaQuery
+                          .of(context)
+                          .size
+                          .width / 9,
                     ),
                   ],
                 ),
@@ -345,176 +357,4 @@ class HomeState extends State<Home> {
     );
   }
 
-  Widget DrawerView(BuildContext context,) {
-    return new Container(
-      child: new ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                CircleAvatar(
-                  backgroundImage: AssetImage('img/doctor1.png'),
-                  radius: MediaQuery
-                      .of(context)
-                      .size
-                      .width /8,
-                ),
-
-
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Text(
-                    'username',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            decoration: BoxDecoration(
-              color: Colors.blueAccent,
-            ),
-          ),
-          ListTile(
-            title: new Text(
-              'Profile',
-              style: TextStyle(color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
-            ),
-            leading: Icon(
-              Icons.person_pin,
-              color: Colors.blueAccent,
-              size: MediaQuery
-                  .of(context)
-                  .size
-                  .width / 10,
-            ),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute<Null>(
-                  builder: (BuildContext context) {
-                    return new Home();
-                  }));
-            },
-          ),
-          Divider(color: Colors.black,),
-          ListTile(
-            title: new Text(
-              'Speciality',
-              style: TextStyle(color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
-            ),
-            leading: Icon(
-              Icons.local_car_wash,
-              color: Colors.cyan,
-              size: MediaQuery
-                  .of(context)
-                  .size
-                  .width / 10,
-            ),
-          ),
-          Divider(color: Colors.black,),
-          ListTile(
-            title: new Text(
-              'Appointments',
-              style: TextStyle(color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
-            ),
-            leading: Icon(
-              Icons.access_time,
-              color: Colors.green,
-              size: MediaQuery
-                  .of(context)
-                  .size
-                  .width / 10,
-            ),
-          ),
-          Divider(color: Colors.black,),
-          ListTile(
-            title: new Text(
-              'Favourits',
-              style: TextStyle(color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
-            ),
-            leading: Icon(
-              Icons.favorite,
-              color: Colors.red,
-              size: MediaQuery
-                  .of(context)
-                  .size
-                  .width / 10,
-            ),
-          ),
-          Divider(color: Colors.black,),
-          ListTile(
-            title: new Text(
-              'Settings',
-              style: TextStyle(color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
-            ),
-            leading: Icon(
-              Icons.settings,
-              color: Colors.blueGrey,
-              size: MediaQuery
-                  .of(context)
-                  .size
-                  .width / 10,
-            ),
-          ),
-          Divider(color: Colors.black,),
-          ListTile(
-            title: new Text(
-              'Social Sharing',
-              style: TextStyle(color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
-            ),
-            leading: Icon(
-              Icons.share,
-              color: Colors.greenAccent,
-              size: MediaQuery
-                  .of(context)
-                  .size
-                  .width / 10,
-            ),
-          ),
-          Divider(color: Colors.black,),
-          ListTile(
-            title: new Text(
-              'LogOut',
-              style: TextStyle(color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
-            ),
-            leading: Icon(
-              Icons.exit_to_app,
-              color: Colors.black,
-              size: MediaQuery
-                  .of(context)
-                  .size
-                  .width / 10,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  }
+}
