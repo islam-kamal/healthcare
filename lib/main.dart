@@ -7,7 +7,7 @@ void main(){
   runApp(
     new MaterialApp(
       title:'HelathCare',
-      home: LoginPage(),
+      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     )
   );
