@@ -57,6 +57,14 @@ flutter:
       - img/twitter.png
       - img/take_photo.png
       - img/profile_photo.png
+      - img/Cardlologist.png
+      - img/Orthopedic.png
+      - img/Dentist.png
+      - img/Urologist.png
+      - img/Oncologist.png
+      - img/Pediatrician.png
+      - img/Ent_Specialist.png
+      - img/Gynaecologist.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

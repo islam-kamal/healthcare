@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:healthcare/Model/CommonComponents.dart';
 import 'package:healthcare/Model/SmoothStarRating.dart';
+import 'package:healthcare/View/DoctorsPage.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -169,7 +170,7 @@ class HomeState extends State<Home> {
                   ),
                   Padding(
                     padding: EdgeInsets.all(5.0),
-                    child: new Container(
+                    child:  new Container(
                       child: ListView.builder(
                         controller: null,
                         itemCount: doctor_list.length,
@@ -179,6 +180,7 @@ class HomeState extends State<Home> {
 
                       ),
                     ),
+
                   ),
                   // usen to display data which get from firebase
                   /*
@@ -216,6 +218,7 @@ class HomeState extends State<Home> {
   }
 
   Widget _DoctorDtails(BuildContext context, int index) {
+
     return new Card(
       child: InkWell(
         onTap: () {
@@ -356,5 +359,6 @@ class HomeState extends State<Home> {
       ),
     );
   }
+
 
 }
